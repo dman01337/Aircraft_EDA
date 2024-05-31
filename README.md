@@ -1,4 +1,4 @@
-![title_airplane](./images/title_airplane.png)
+![title_airplane](./Images/title_airplane.png)
 
 # Aircraft Risk Assessment Analysis
 
@@ -49,19 +49,19 @@ Here we can see the average fatality rates for each class of plane:
 
 
 
-![fatal_rates_by_class](./images/fatal_rates_by_class.png)
+![fatal_rates_by_class](./Images/fatal_rates_by_class.png)
 
 For the Large class, there were eight models that had zero fatalities, so we evaluate those models based on non-fatal injury rates:
 
-![large_non_fatal](./images/large_non_fatal.png)
+![large_non_fatal](./Images/large_non_fatal.png)
 
 For the Medium class, there were six models that had zero fatalities, so we evaluate those models based on non-fatal injury rates:
 
-![medium_non_fatal](./images/medium_non_fatal.png)
+![medium_non_fatal](./Images/medium_non_fatal.png)
 
 For the Small class, all models had fatalities, so we evaluate those models based on fatal injury rates:
 
-![small_class_fatal_rates](./images/small_class_fatal_rates.png)
+![small_class_fatal_rates](./Images/small_class_fatal_rates.png)
 
 # Conclusions
 
