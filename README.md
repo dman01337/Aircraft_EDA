@@ -1,60 +1,103 @@
-![austin animal center](./images/austin-animal-center.jpg)
+![title_airplane](./images/title_airplane.png)
 
-# Austin Animal Center Needs Analysis
+# Aircraft Risk Assessment Analysis
 
-**Author**: [Alison Peebles Madigan](mailto:alison.peeblesmadigan@flatironschool.com)
 
-## Overview
 
-This project analyzes the resource needs of the [Austin Animal Center](https://www.austintexas.gov/department/aac) (AAC), which shelters 16,000 animals annually with a [No Kill policy](https://www.austintexas.gov/blog/no-kill-austin). Descriptive analysis of animal intake and outcome data shows that some animals require extended stays and that the number of sheltered animals varies seasonally. The Austin Animal Center can use this analysis to adjust outreach, hiring, and space utilization to improve resource allocation.
+### Analysis Overview
 
-## Business Problem
 
-![img](./images/animals.png)
 
-The Austin Animal Shelter may be able to improve their resource allocation to both reduce costs and ensure that the center has staff and space to care for the animals brought to them. Doing so will allow the Austin Animal Shelter to better serve its clients while also freeing up resources to expand the scope of services they can offer.
+The overall goal of this analysis is to evaluate the [Aviation Accident Database](https://www.kaggle.com/datasets/khsamaha/aviation-accident-database-synopses) to determine which aircraft pose the least amount of risk for injuries. This analysis will show which aircrafts should be taken into account for potential commercial or private use.
+- Assesses risk based on fatal and non-fatal injury rates of aircraft models
 
-## Data
+- Recommendation of three safest aircraft models for each of three passenger capacity classes (small, medium, large)
 
-The Austin Animal Center has the longest running public dataset of animal rescues in the country. Every animal has a unique ID associated with both their [intake](https://data.austintexas.gov/Health-and-Community-Services/Austin-Animal-Center-Intakes/wter-evkm) and [outcome](https://data.austintexas.gov/Health-and-Community-Services/Austin-Animal-Center-Outcomes/9t4d-g238) data. The data files provide the dates and types of each event, as well as other animal characteristics (e.g. type, sex).
+### Business Problem
 
-## Methods
 
-This project uses descriptive analysis, including description of trends over time. This provides a useful overview of AAC's typical intakes and outcomes to identify resource needs.
 
-## Results
+A company is expanding into the aircraft industry to
+diversify its portfolio. Specifically, they are interested
+in purchasing and operating airplanes for commercial
+and private enterprises, but are unaware of the potential risks of aircraft. The goal here is to evaluate which aircraft provides the best fit for the company by assessing the personal injury risk by aircraft model.
 
-Most animals have short stays at AAC (under 15 days) but some have long stays (over 180 days), and most of these are dogs.
 
-![stay_lengths_by_type](./images/stay_lengths_by_type.png)
+### Data
 
-The total number of sheltered animals typically peaks in May of each year and then hits its lowest point around January. There is often a secondary peak sometime after May before the number of sheltered animals drops rapidly. The number of sheltered animals has dropped precipitously in 2020, likely as a result of COVID-19.
 
-![sheltered_by_month.png](./images/sheltered_by_month.png)
 
-## Conclusions
+The [Aviation Accident Database](https://www.kaggle.com/datasets/khsamaha/aviation-accident-database-synopses) provides extensive data of aircraft accidents since the year 1948. We can use this dataset to find which aircrafts have the smallest potential for injury. The dataset also includes a wealth of data related to aircrafts and the accidents over the past few decades to help us narrow down the best fits.
 
-This analysis leads to three recommendations for improving operations of the Austin Animal Center:
+### Methods
 
-- **Engage in targeted outreach campaigns for dogs that have been sheltered at AAC for more than 30 days.** While most dogs will have been placed after 30 days, this may help reduce the number of dogs that end up having extended stays, potentially requiring many more months of care.
-- **Reduce current spending until the numbers of intakes and sheltered animals return to normal.** Given the reduced activity during this period, AAC should consider ways to temporarily reduce costs by changing space utilization or staffing.
-- **Hire seasonal staff and rent temporary space for May through December.** To accommodate the high volume of intakes and number of sheltered animals in the spring and fall, AAC should leverage seasonal resources, rather than full-year ones. This will allow AAC to cut back on expenditures during the months when there is lower
 
-### Next Steps
+This project uses descriptive analysis to identify aircraft models that meet the following criteria:
+- A minimum of 1000 total passengers involved in accidents over the history of the model, for adequate sample size
+- Fatal and Non-fatal injury rates were calculated for each model considered:
+    - Minimization of fatal injury rates were prioritized
+    - For aircraft that did not have fatalities in thier history, non-fatal injury rates were considered
 
-Further analyses could yield additional insights to further improve operations at AAC:
+Aircraft were binned into three categories based on passenger capacity (small, medium, large). Recommendations for top three safest aircraft were made for each capacity category based on the criteria above.
 
-- **Better prediction of animals that are likely to have long stays.** This modeling could use already available data, such as breed and intake condition.
-- **Model need for medical support.** This modeling could predict the need for specialized personnel to address animals' medical needs, including neutering, using intake condition and sex data.
-- **Predicting undesirable outcomes.** This modeling could identify animals that are more likely to have undesirable outcomes (e.g. Euthanasia) for targeted medical support or outreach.
+### Results
+
+Here we can see the average fatality rates for each class of plane:
+- Small: 1-2 passengers
+- Medium: 3-150 passengers
+- Large: >150 passengers
+
+
+
+![fatal_rates_by_class](./images/fatal_rates_by_class.png)
+
+For the Large class, there were eight models that had zero fatalities, so we evaluate those models based on non-fatal injury rates:
+
+![large_non_fatal](./images/large_non_fatal.png)
+
+For the Medium class, there were six models that had zero fatalities, so we evaluate those models based on non-fatal injury rates:
+
+![medium_non_fatal](./images/medium_non_fatal.png)
+
+For the Small class, all models had fatalities, so we evaluate those models based on fatal injury rates:
+
+![small_class_fatal_rates](./images/small_class_fatal_rates.png)
+
+# Conclusions
+
+- For the Medium Class aircraft models, we recommend the following, which had the lowest injury rates:
+    1. Boeing 757-223
+    2. Boeing 737-7H4
+    3. Boeing 737
+ 
+ 
+- For the Large Class aircraft models, we recommend the following, which had the lowest injury rates:
+    1. Airbus A321
+    2. Boeing 757-222
+    3. Boeing 747-400
+ 
+ 
+- We <u>do not</u> recommend the use of Small Class planes because their fatality rate is much higher.
+    - If necessary, small class aircraft with the lowest injury rates were:
+        1. Cessna 180
+        2. Cessna 152
+        3. Cessna 172 
+
+# Next Steps
+- Analyze geographic location effects for recommended models to optimize safety
+- Acquire non-accident flight record data to analyze the volume of safe flights by model and potential markets
+- Return on Investment (ROI) analysis based on MSRP data, purchase availability and loan rates for safe model recommendations
 
 ## For More Information
 
-See the full analysis in the [Jupyter Notebook](./animal-shelter-needs-analysis.ipynb) or review this [presentation](./Animal_Shelter_Needs_Presentation.pdf).
+To see the full data analysis check out the [Jupyter Notebook]((./Aircraft_Safety_Risk_Analysis.ipynb)) or review the [presentaion](./Aircraft_Safety_Risk_Analysis_Presentation.pdf)
 
-For additional info, contact Alison Peebles Madigan at [alison.peeblesmadigan@flatironschool.com](mailto:alison.peeblesmadigan@flatironschool.com)
 
-![logo](./images/aac_logo_tall.jpg)
+For any additional questions contact Dale Deford or James Warsing
+
+Dale Deford: daledeford@gmail.com
+
+James Warsing: warsingjt@gmail.com
 
 ## Repository Structure
 
@@ -62,6 +105,12 @@ For additional info, contact Alison Peebles Madigan at [alison.peeblesmadigan@fl
 ├── data
 ├── images
 ├── README.md
-├── Animal_Shelter_Needs_Presentation.pdf
-└── animal_shelter_needs_analysis.ipynb
+├── Aircraft_Safety_Risk_Analysis_Dashboard.twb
+├── Aircraft_Safety_Risk_Analysis_Presentation.pdf
+└── Aircraft_Safety_Risk_Analysis.ipynb
+```
+
+
+```python
+
 ```
