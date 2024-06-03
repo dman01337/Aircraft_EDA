@@ -92,7 +92,7 @@ For the Small class, all models had fatalities, so we evaluate those models base
 
 To see the full data analysis check out the [Jupyter Notebook](./Aircraft_Safety_Risk_Analysis.ipynb) or review the [presentation](./Aircraft_Safety_Risk_Analysis_Presentation.pdf)
 
-Also see the Tableau dashboard interactive visuals here: [Tableau Dashboard](./Aircraft_Safety_Risk_Analysis_Dashboard.twb)
+Also see the Tableau dashboard interactive visuals here: [Tableau Dashboard](https://public.tableau.com/app/profile/dale.deford/viz/Aircraft_Safety_Risk_Analysis_Dashboard/DASHBOARD?publish=yes)
 
 For any additional questions contact Dale Deford or James Warsing
 
